@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrudController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolController;
@@ -31,10 +32,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     // School
-    Route::resource('schools', SchoolController::class)->parameters(['schools' => 'obj'])->names('school');
+    // Route::resource('schools', SchoolController::class)->parameters(['schools' => 'obj'])->names('school');
 
-    // Employee
-    Route::resource('employees', EmployeeController::class)->parameters(['employees' => 'obj'])->names('employee');
+    // // Employee
+    // Route::resource('employees', EmployeeController::class)->parameters(['employees' => 'obj'])->names('employee');
+
+    Route::resource('schools', CrudController::class)->parameters(['schools' => 'obj'])->names('school');
+    Route::resource('employees', CrudController::class)->parameters(['employees' => 'obj'])->names('employee');
 });
 
 require __DIR__.'/auth.php';

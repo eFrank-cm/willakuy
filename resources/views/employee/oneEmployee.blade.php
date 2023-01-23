@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight flex">
                 <img src="{{ asset('images/employee.png')}}" alt="logo" class='h-10 mr-4'>
                 <p class="text-2xl inline-block align-text-bottom pt-3.5">
-                    {{ $employee->name }}
+                    {{ $employee->full_name() }}
                 </p>
             </h2>
             <div class='flex'>

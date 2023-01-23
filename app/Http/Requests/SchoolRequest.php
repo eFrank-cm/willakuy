@@ -32,7 +32,8 @@ class SchoolRequest extends FormRequest
             'province'=> 'required',
             'district'=> 'required',
             'zone'=> 'required',
-            'address'=> 'required'
+            'address'=> 'required',
+            'dni' => 'required'
         ];
     }
 }

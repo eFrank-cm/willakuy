@@ -1,15 +1,11 @@
-@php
-    $class = substr(request()->segment(1), 0, -1);
-@endphp
-
 <x-app-layout>
     <form action="{{ route($class.'.update', $obj) }}" method="POST">
         <div class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <div class='flex justify-between'>
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight flex">
-                        <img src="{{ asset('images/school.png')}}" alt="logo" class='h-10 mr-4'>
-                        <p class="text-2xl inline-block align-text-bottom pt-3.5">{{ __('Edit School') }}</p>
+                        <img src="{{ asset("images/$class.png")}}" alt="logo" class='h-10 mr-4'>
+                        <p class="text-2xl inline-block align-text-bottom pt-3.5">{{ "Edit ".ucwords($class) }}</p>
                     </h2>
                     <div class="flex"> 
                         <button type='submit' class='mr-3 py-1 w-10'>
@@ -22,7 +18,7 @@
                 </div>
             </div>
         </div>
-        
+
         <x-content>
             @method('PUT')
             @include('crud._form')

@@ -42,47 +42,47 @@
     @case('employee')
         {{-- Form create employee --}}
         <label class="uppercase text-gray-700 text-xs">DNI</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('dni') {{ $message }} @enderror</span>
         <input type="text" name="dni" class="rounded border-gray-200 w-full mb-4" value="{{ old('dni', $obj->dni) }}">
 
         <label class="uppercase text-gray-700 text-xs">Name</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('name') {{ $message }} @enderror</span>
         <input type="text" name="name" class="rounded border-gray-200 w-full mb-4" value="{{ old('name', $obj->name) }}">
         
         <label class="uppercase text-gray-700 text-xs">Last Names</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('last_name') {{ $message }} @enderror</span>
         <input type="text" name="last_names" class="rounded border-gray-200 w-full mb-4" value="{{ old('last_names', $obj->last_names) }}">
         
         <label class="uppercase text-gray-700 text-xs">Email</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('email') {{ $message }} @enderror</span>
         <input type="text" name="email" class="rounded border-gray-200 w-full mb-4" value="{{ old('email', $obj->email) }}">
 
         <label class="uppercase text-gray-700 text-xs">Mobile Number</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('mobile_num') {{ $message }} @enderror</span>
         <input type="text" name="mobile_num" class="rounded border-gray-200 w-full mb-4" value="{{ old('mobile_num', $obj->mobile_num) }}">
 
         <label class="uppercase text-gray-700 text-xs">Education Level</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('edu_level') {{ $message }} @enderror</span>
         <input type="text" name="edu_level" class="rounded border-gray-200 w-full mb-4" value="{{ old('edu_level', $obj->edu_level) }}">
 
         <label class="uppercase text-gray-700 text-xs">Profession</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('profession') {{ $message }} @enderror</span>
         <input type="text" name="profession" class="rounded border-gray-200 w-full mb-4" value="{{ old('profession', $obj->profession) }}">
 
         <label class="uppercase text-gray-700 text-xs">Specialty</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('specialty') {{ $message }} @enderror</span>
         <input type="text" name="specialty" class="rounded border-gray-200 w-full mb-4" value="{{ old('specialty', $obj->specialty) }}">
 
         <label class="uppercase text-gray-700 text-xs">Degree</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('degree') {{ $message }} @enderror</span>
         <input type="text" name="degree" class="rounded border-gray-200 w-full mb-4" value="{{ old('degree', $obj->degree) }}">
 
         <label class="uppercase text-gray-700 text-xs">Study Center</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('study_center') {{ $message }} @enderror</span>
         <input type="text" name="study_center" class="rounded border-gray-200 w-full mb-4" value="{{ old('study_center', $obj->study_center) }}">
 
         <label class="uppercase text-gray-700 text-xs">Mention</label>
-        <span class="text-xs text-red-600"></span>
+        <span class="text-xs text-red-600">@error('mention') {{ $message }} @enderror</span>
         <input type="text" name="mention" class="rounded border-gray-200 w-full mb-4" value="{{ old('mention', $obj->mention) }}">
         @break
     @case('user')
