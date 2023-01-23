@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('degree')->nullable();
             $table->string('study_center')->nullable();
             $table->text('mention')->nullable();
-            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

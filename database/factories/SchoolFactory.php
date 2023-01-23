@@ -32,8 +32,7 @@ class SchoolFactory extends Factory
             'province' => fake()->randomElement($province),
             'district' => fake()->randomElement($district),
             'zone' => fake()->randomElement($zone),
-            'address' => fake()->address(),
-            'slug' => Str::slug($mod_code)
+            'address' => fake()->address()
         ];
     }
 }

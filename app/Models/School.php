@@ -19,8 +19,7 @@ class School extends Model
         'province',
         'district',
         'zone',
-        'address',
-        'slug',
+        'address'
     ];
     
     protected function name():Attribute{

@@ -15,7 +15,7 @@ class Employee extends Model
         'name',
         'last_names',
         'email',
-        'num_mobile',
+        'mobile_num',
         'edu_level',
         'profession',
         'specialty',

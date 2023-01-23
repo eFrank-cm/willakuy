@@ -27,8 +27,7 @@ class EmployeeFactory extends Factory
             'specialty' => 'educacion primaria',
             'degree' => 'licenciatura',
             'study_center' => fake()->randomElement(['unsaac', 'unsa', 'una']),
-            'mention' => fake()->text(),
-            'slug'=> fake()->unique()->randomNumber(6, True)
+            'mention' => fake()->text()
         ];
     }
 }

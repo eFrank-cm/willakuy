@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('district');
             $table->string('zone');
             $table->string('address')->nullable();
-            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

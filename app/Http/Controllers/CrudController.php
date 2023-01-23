@@ -46,10 +46,7 @@ class CrudController extends Controller
     public function store(CrudRequest $request){
         $class = substr(request()->segment(1), 0, -1);
         $model = $this->models[$class];
-        $obj = $model::create(array_merge(
-            $request->all(), 
-            ['slug'=>Str::slug($request->mod_code)])
-        );
+        $obj = $model::create($request->all());
 
         return redirect()->route($class.'.edit', compact('obj'));
     }
@@ -63,10 +60,7 @@ class CrudController extends Controller
     public function update(CrudRequest $request, $obj){
         $class = substr(request()->segment(1), 0, -1);
         $obj = $this->models[$class]::find($obj);
-        $obj->update(array_merge(
-            $request->all(), 
-            ['slug'=>Str::slug($request->mod_code)])
-        );
+        $obj->update($request->all());
         return redirect()->route($class.'.edit', compact('obj'));
     }
 
