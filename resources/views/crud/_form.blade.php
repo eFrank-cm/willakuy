@@ -1,7 +1,7 @@
 @csrf
-@switch(request()->segment(1))
+@switch($class)
     {{-- Form create school --}}
-    @case('schools')
+    @case('school')
         <label class="uppercase text-gray-700 text-xs">Modular Code</label>
         <span class="text-xs text-red-600">@error('mod_code') {{ $message }} @enderror</span>
         <input type="text" name="mod_code" class="rounded border-gray-200 w-full mb-4" value="{{ old('mod_code', $obj->mod_code) }}">
@@ -38,8 +38,9 @@
         <span class="text-xs text-red-600">@error('address') {{ $message }} @enderror</span>
         <input type="text" name="address" class="rounded border-gray-200 w-full mb-4" value="{{ old('address', $obj->address) }}">
         @break
-    {{-- Form create employee --}}
-    @case('employees')
+
+    @case('employee')
+        {{-- Form create employee --}}
         <label class="uppercase text-gray-700 text-xs">DNI</label>
         <span class="text-xs text-red-600"></span>
         <input type="text" name="dni" class="rounded border-gray-200 w-full mb-4" value="{{ old('dni', $obj->dni) }}">
@@ -53,7 +54,7 @@
         <input type="text" name="last_names" class="rounded border-gray-200 w-full mb-4" value="{{ old('last_names', $obj->last_names) }}">
         
         <label class="uppercase text-gray-700 text-xs">Email</label>
-        <span class="text-xs text-red-600">@error('slug') {{ $message }} @enderror</span>
+        <span class="text-xs text-red-600"></span>
         <input type="text" name="email" class="rounded border-gray-200 w-full mb-4" value="{{ old('email', $obj->email) }}">
 
         <label class="uppercase text-gray-700 text-xs">Mobile Number</label>
@@ -84,7 +85,7 @@
         <span class="text-xs text-red-600"></span>
         <input type="text" name="mention" class="rounded border-gray-200 w-full mb-4" value="{{ old('mention', $obj->mention) }}">
         @break
-    @case('users')
+    @case('user')
         <label class="uppercase text-gray-700 text-xs">Name</label>
         <span class="text-xs text-red-600"></span>
         <input type="text" name="name" class="rounded border-gray-200 w-full mb-4" value="{{ old('name', $obj->name) }}">

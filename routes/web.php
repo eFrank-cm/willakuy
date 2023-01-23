@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,9 @@ Route::middleware('auth')->group(function () {
     
     // School
     Route::resource('schools', SchoolController::class)->parameters(['schools' => 'obj'])->names('school');
+
+    // Employee
+    Route::resource('employees', EmployeeController::class)->parameters(['employees' => 'obj'])->names('employee');
 });
 
 require __DIR__.'/auth.php';

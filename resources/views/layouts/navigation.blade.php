@@ -19,8 +19,15 @@
 
                 {{-- School --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('school.index')" :active="request()->routeIs('school.index')">
+                    <x-nav-link :href="route('school.index')" :active="str_contains(request()->path(), 'schools')">
                         {{ __('Schools') }}
+                    </x-nav-link>
+                </div>
+
+                {{-- Employee --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('employee.index')" :active="str_contains(request()->path(), 'employee')">
+                        {{ __('Employees') }}
                     </x-nav-link>
                 </div>
             </div>
