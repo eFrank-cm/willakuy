@@ -33,7 +33,9 @@
         <div class="flex"><label class="font-bold">Degree: </label>{{ $employee->degree }}</div>
         <div class="flex"><label class="font-bold">Study Center: </label>{{ $employee->study_center }}</div>
         <div class="flex"><label class="font-bold">Mention: </label>{{ $employee->mention }}</div>
+    </x-content>
 
-
+    <x-content>
+        history works
     </x-content>
 </x-app-layout>

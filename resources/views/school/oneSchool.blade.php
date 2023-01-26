@@ -29,4 +29,19 @@
         <div class="flex"><label class="font-bold">Location: </label>{{ $school->province.", ".$school->district." - ".$school->zone }}</div>
         <div class="flex"><label class="font-bold">Addrees: </label>{{ $school->address }}</div>
     </x-content>
+
+    <x-alert type="danger" id='alert'>
+        <x-slot name='title'>
+            GG nomas
+        </x-slot>
+        hola
+    </x-alert>
+
+    <x-content>
+        table of currently jobs
+    </x-content>
+
+    <x-content>
+        free jobs
+    </x-content>
 </x-app-layout>

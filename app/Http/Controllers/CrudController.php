@@ -7,7 +7,6 @@ use App\Models\Employee;
 use App\Models\School;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class CrudController extends Controller
 {
@@ -35,7 +34,14 @@ class CrudController extends Controller
     public function show($obj){
         $class = substr(request()->segment(1), 0, -1);
         $obj = $this->models[$class]::find($obj);
-        return view($class.'.one'. ucwords($class), [$class => $obj]);
+        switch ($class){
+            case 'school':
+                return SchoolController::show($obj); break;
+            case 'employee':
+                return EmployeeController::show($obj); break;
+            default:
+                return abort(404);
+        }
     }
 
     // raro que funcione con School
