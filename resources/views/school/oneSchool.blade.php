@@ -21,27 +21,97 @@
         </div>
     </x-slot>
 
-    <x-content title="School Data">
+    <x-content>
         <div class="flex"><label class="font-bold">Modular Code: </label>{{ $school->mod_code }}</div>
         <div class="flex"><label class="font-bold">Number: </label>{{ $school->number }}</div>
         <div class="flex"><label class="font-bold">Level: </label>{{ $school->level }}</div>
         <div class="flex"><label class="font-bold">Type: </label>{{ $school->type }}</div>
-        <div class="flex"><label class="font-bold">Location: </label>{{ $school->province.", ".$school->district." - ".$school->zone }}</div>
+        <div class="flex"><label class="font-bold">Location: </label>{{ $school->location }}</div>
         <div class="flex"><label class="font-bold">Addrees: </label>{{ $school->address }}</div>
     </x-content>
 
-    <x-alert type="danger" id='alert'>
+    {{-- <x-alert type="danger" id='alert'>
         <x-slot name='title'>
             GG nomas
         </x-slot>
         hola
-    </x-alert>
+    </x-alert> --}}
 
-    <x-content>
-        table of currently jobs
+    <x-content title="Jobs">
+        <table class='w-full text-sm'>
+            <tr>
+                <th>Code</th>
+                <th>Type / Subtype</th>
+                <th>Function</th>
+                <th>Quality</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Archived</th>
+            </tr>
+            {{-- @dump($jobs) --}}
+            @foreach ($jobs as $job)
+                <tr>
+                    <td>{{ $job->code }}</td>
+                    <td>{{ $job->type." / ".$job->subtype }}</td>
+                    <td>{{ $job->function }}</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                @foreach ($job->works as $work)
+                    <tr class='bg-red-400'>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>{{ $work->quality }}</td>
+                        <td>{{ $work->employee->full_name }}</td>
+                        <td>{{ $work->employee->mobile_num }}</td>
+                        <td>{{ $work->employee->email }}</td>
+                        <td>{{ $work->archived }}</td>
+                    </tr>                    
+                @endforeach
+            @endforeach
+        </table>
     </x-content>
 
-    <x-content>
-        free jobs
+    <x-content title='Plazas vacantes'>
+        <table class='w-full text-sm'>
+            <tr>
+                <th>Code</th>
+                <th>Type / Subtype</th>
+                <th>Function</th>
+                <th>Quality</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Archived</th>
+            </tr>
+            {{-- @dump($jobs) --}}
+            @foreach ($jobs_free as $job)
+                <tr>
+                    <td>{{ $job->code }}</td>
+                    <td>{{ $job->type." / ".$job->subtype }}</td>
+                    <td>{{ $job->function }}</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                {{-- @foreach ($job->works as $work)
+                    <tr class='bg-red-400'>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>{{ $work->quality }}</td>
+                        <td>{{ $work->employee->full_name }}</td>
+                        <td>{{ $work->employee->mobile_num }}</td>
+                        <td>{{ $work->employee->email }}</td>
+                        <td>{{ $work->archived }}</td>
+                    </tr>                    
+                @endforeach --}}
+            @endforeach
+        </table>
     </x-content>
 </x-app-layout>

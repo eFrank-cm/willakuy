@@ -10,18 +10,10 @@ class School extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'mod_code',
-        'number',
-        'name',
-        'level',
-        'type',
-        'province',
-        'district',
-        'zone',
-        'address'
-    ];
+    // habilitar la asignacion masiva
+    protected $guarded = [];
     
+    // accesores y mutadores de los atributos
     protected function name():Attribute{
         return new Attribute(
             get: fn($value) => ucwords($value),
@@ -63,8 +55,15 @@ class School extends Model
             set: fn($value) => strtolower($value)
         );
     }
+    
+    // atributos compuestos
+    public function location():Attribute{
+        return new Attribute(
+            get: fn() => ucwords($this->province.", ".$this->district." - ".$this->zone) 
+        ); 
+    }
 
-    public function location(){
-        return ucwords($this->province.", ".$this->district." - ".$this->zone);
+    public function jobs(){
+        return $this->hasMany(Job::class);
     }
 }

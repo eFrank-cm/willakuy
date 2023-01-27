@@ -6,7 +6,9 @@ use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
-    static function show(Employee $obj){
-        return view('employee.oneEmployee', ['employee' => $obj]);
+    static function show(Employee $employee){
+        return view('employee.oneEmployee', compact('employee'));
     }
+
+    
 }

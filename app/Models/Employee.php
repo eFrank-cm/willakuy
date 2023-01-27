@@ -10,20 +10,10 @@ class Employee extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'dni',
-        'name',
-        'last_names',
-        'email',
-        'mobile_num',
-        'edu_level',
-        'profession',
-        'specialty',
-        'degree',
-        'study_center',
-        'mention'
-    ];
+    // habilitar la asignacion masiva
+    protected $guarded = [];
 
+    // accesores y mutadores
     protected function name():Attribute{
         return new Attribute(
             get: fn($value) => ucwords($value),
@@ -31,19 +21,19 @@ class Employee extends Model
         );
     }
 
-    // protected function last_name():Attribute{
-    //     return new Attribute(
-    //         get: fn($value) => ucwords($value),
-    //         set: fn($value) => strtolower($value)
-    //     );
-    // }
+    protected function lastNames():Attribute{
+        return new Attribute(
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
+        );
+    }
 
-    // protected function edu_level():Attribute{
-    //     return new Attribute(
-    //         get: fn($value) => ucwords($value),
-    //         set: fn($value) => strtolower($value)
-    //     );
-    // }
+    protected function eduLevel():Attribute{
+        return new Attribute(
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
+        );
+    }
 
     protected function profession():Attribute{
         return new Attribute(
@@ -66,14 +56,24 @@ class Employee extends Model
         );
     }
 
-    // protected function study_center():Attribute{
-    //     return new Attribute(
-    //         get: fn($value) => ucwords($value),
-    //         set: fn($value) => strtolower($value)
-    //     );
-    // }
-
-    public function full_name(){
-        return ucwords($this->name." ".$this->last_names);
+    protected function studyCenter():Attribute{
+        return new Attribute(
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
+        );
     }
+
+    
+    // propiedades compuestas
+    public function fullName():Attribute {
+        return new Attribute(
+            get: fn() => $this->name." ".$this->last_names
+        );
+    }
+
+    // Relaciones
+    public function works(){
+        return $this->hasMany(Work::class);
+    }
+
 }

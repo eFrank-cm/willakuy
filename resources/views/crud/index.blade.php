@@ -41,7 +41,7 @@
                             <td class='px-6 py-2'>{{ $school->number." - ".$school->name }}</td>
                             <td class='px-6 py-2'>{{ $school->level }}</td>
                             <td class='px-6 py-2'>{{ $school->type }}</td>
-                            <td class='px-6 py-2'>{{ $school->location() }}</td>
+                            <td class='px-6 py-2'>{{ $school->location }}</td>
                             <td class='border-l px-6 py-2 text-center flex'>
                                 <a href="{{ route('school.show', $school) }}" class='underline hover:decoration-2 px-1'>Ver</a>
                                 <a href="{{ route('school.edit', $school) }}" class='underline hover:decoration-2 px-1'>Edit</a>
@@ -70,7 +70,7 @@
                     @foreach ($collection as $employee)
                         <tr class='border-b border-gray-200 text-sm'>
                             <td class='px-6 py-2'>{{ $employee->dni }}</td>
-                            <td class='px-6 py-2'>{{ $employee->full_name() }}</td>
+                            <td class='px-6 py-2'>{{ $employee->full_name }}</td>
                             <td class='px-6 py-2'>{{ $employee->email }}</td>
                             <td class='px-6 py-2'>{{ $employee->mobile_num }}</td>
                             <td class='px-6 py-2'>{{ $employee->profession. " - ".$employee->specialty }}</td>

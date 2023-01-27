@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight flex">
                 <img src="{{ asset('images/employee.png')}}" alt="logo" class='h-10 mr-4'>
                 <p class="text-2xl inline-block align-text-bottom pt-3.5">
-                    {{ $employee->full_name() }}
+                    {{ $employee->full_name }}
                 </p>
             </h2>
             <div class='flex'>
@@ -36,6 +36,24 @@
     </x-content>
 
     <x-content>
-        history works
+        <table class='w-full'>
+            <tr>
+                <th>Quality</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Archived</th>
+                <th>Reason</th>
+            </tr>
+            @foreach ($employee->works as $work)            
+                <tr>
+                    <td>{{ $work->quality }}</td>
+                    <td>{{ $work->start_date }}</td>
+                    <td>{{ $work->end_date }}</td>
+                    <td>{{ (boolval($work->archived) ? 'true' : 'false') }}</td>
+                    <td>{{ $work->reason }}</td>
+                </tr>
+            @endforeach
+        </table>
     </x-content>
+
 </x-app-layout>
